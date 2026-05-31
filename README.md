@@ -1,7 +1,7 @@
 # CacheXL: Cross-Instance Learning via Online Cache for Efficient and Enhanced LLM Inference
 
 <p align="center">
-  <img src="figures/CacheXL.pdf" alt="CacheXL Framework Overview" width="100%">
+  <img src="figures/CacheXL.png" alt="CacheXL Framework Overview" width="100%">
 </p>
 
 ## Abstract
@@ -10,12 +10,14 @@ Cross-instance learning is an emerging mechanism for improving LLM reasoning. It
 
 ## Method
 
-CacheXL is a cross-instance learning framework built around an online evidence cache. The framework uses three LLM roles: **Actor**, **Reflector**, and **Escalator**.
+### Key Components
 
-1. **Actor** produces an initial rationale, an answer, and a self-reported confidence score for each query.
-2. In parallel, the system retrieves semantically related historical instances from the **evidence cache**.
-3. **Reflector** reviews each sample with the retrieved context, decides whether the current answer can be accepted, and identifies reusable high-confidence cases for cache admission.
-4. **Escalator** is used only for difficult cases flagged by Reflector (when both Actor and Reflector confidence are below threshold τ_l).
+| Component | Role |
+|-----------|------|
+| **Actor** | Generate initial rationale, answer, and confidence |
+| **Reflector** | Evaluate with retrieved context, decide acceptance |
+| **Escalator** | Re-solve difficult cases (when both confidences < τ_l) |
+| **Evidence Cache** | Store high-confidence instances for retrieval |
 
 ### Key Design
 
@@ -26,7 +28,7 @@ CacheXL is a cross-instance learning framework built around an online evidence c
 
 ## Results
 
-CacheXL achieves the highest average accuracy across five LLMs and nine benchmarks:
+CacheXL achieves the highest average accuracy across five LLMs and nine benchmarks, outperforming both ReAct and [Batch of Thought (BoT)](https://arxiv.org/abs/2601.02950) (ACL 2026 Oral):
 
 | Model | ReAct | BoT | CacheXL |
 |-------|-------|-----|---------|
@@ -53,7 +55,7 @@ git clone https://github.com/yuranqiu/CacheXL.git
 cd CacheXL
 
 # Initialize environment and install dependencies
-bash scripts/setup_venv.sh
+bash scripts/setup_env.sh
 ```
 
 ### Configuration
@@ -69,7 +71,7 @@ cp .env.example .env
 
 ```bash
 # Download datasets
-python scripts/download_datasets.py --dataset gpqa,mmlu,math500
+python scripts/prepare_data.py --dataset gpqa,mmlu,math500
 ```
 
 ### Run Experiments
@@ -83,6 +85,9 @@ python src/run_react.py --dataset gpqa,mmlu
 
 # Run BoT method
 python src/run_bot.py --dataset gpqa,mmlu
+
+# Run all methods in parallel
+python scripts/run_experiments.py
 ```
 
 ## Project Structure
@@ -104,22 +109,16 @@ CacheXL/
 │           ├── workflow.py   # Main workflow
 │           ├── cache.py      # Evidence cache
 │           └── prompts.py    # Prompt templates
+├── scripts/
+│   ├── run_experiments.py    # Run all experiments
+│   ├── stop_experiments.py   # Stop running experiments
+│   ├── generate_report.py    # Generate comparison report
+│   ├── compare_methods.py    # Compare method results
+│   └── prepare_data.py       # Download datasets
 ├── data/                     # Datasets
-├── scripts/                  # Utility scripts
 ├── figures/                  # Figures
 ├── .env.example              # Configuration template
 └── pyproject.toml            # Project dependencies
-```
-
-## Citation
-
-```bibtex
-@article{yue2026cachexl,
-  title={CacheXL: Cross-Instance Learning via Online Cache for Efficient and Enhanced LLM Inference},
-  author={Yue, Ruiqing and Cui, Yu and Xue, Xianhong and Pan, Sicheng and Sun, Zhuoyu and Liu, Yifei and Huang, Baohan and Cui, Zhe and Zhang, Haibin and Zuo, Cong},
-  journal={arXiv preprint},
-  year={2026}
-}
 ```
 
 ## License
