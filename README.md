@@ -4,6 +4,18 @@
   <img src="figures/CacheXL.png" alt="CacheXL Framework Overview" width="100%">
 </p>
 
+## Authors
+
+**Ruiqing Yue**<sup>1,2</sup>, **Yu Cui**<sup>3</sup>, **Xianhong Xue**<sup>1,2</sup>, **Sicheng Pan**<sup>3</sup>, **Zhuoyu Sun**<sup>3</sup>, **Yifei Liu**<sup>3</sup>, **Baohan Huang**<sup>3</sup>, **Zhe Cui**<sup>1,2</sup>, **Haibin Zhang**<sup>4,5</sup>, **Cong Zuo**<sup>3</sup>
+
+<sup>1</sup>Chengdu Institute of Computer Applications, Chinese Academy of Sciences
+<sup>2</sup>University of Chinese Academy of Sciences
+<sup>3</sup>Beijing Institute of Technology
+<sup>4</sup>Yangtze Delta Region Institute of Tsinghua University, Zhejiang
+<sup>5</sup>Jiaxing Key Laboratory of Artificial Intelligence and Cyber Resilience
+
+📧 Contact: [yueruiqing25@mails.ucas.ac.cn](mailto:yueruiqing25@mails.ucas.ac.cn), [cuiyu@bit.edu.cn](mailto:cuiyu@bit.edu.cn)
+
 ## Abstract
 
 Cross-instance learning is an emerging mechanism for improving LLM reasoning. It applies batch reflection to share information across queries and improve reasoning performance. However, instances aggregated within the same batch often lack semantic relevance to the current query, limiting the specificity of reflective feedback. We propose **CacheXL**, a cache-augmented cross-instance learning framework that maintains an online evidence cache of high-confidence historical reasoning instances and retrieves semantically similar examples as targeted reflective evidence. In CacheXL, the online evidence cache serves as the central mechanism for cross-instance learning. The full system integrates retrieval-based evidence reuse, selective reflection, and escalation, and runs retrieval asynchronously with initial reasoning to reduce additional latency. Extensive experiments on nine reasoning benchmarks and five LLMs show that CacheXL improves average accuracy and calibration across models. It also achieves lower end-to-end latency than batch reflection.

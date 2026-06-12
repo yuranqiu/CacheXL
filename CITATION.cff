@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+title: "CacheXL: Cross-Instance Learning via Online Cache for Efficient and Enhanced LLM Inference"
+type: software
+authors:
+  - family-names: Yue
+    given-names: Ruiqing
+    affiliation: "Chengdu Institute of Computer Applications, Chinese Academy of Sciences; University of Chinese Academy of Sciences"
+    email: yueruiqing25@mails.ucas.ac.cn
+  - family-names: Cui
+    given-names: Yu
+    affiliation: "Beijing Institute of Technology"
+    email: cuiyu@bit.edu.cn
+  - family-names: Xue
+    given-names: Xianhong
+    affiliation: "Chengdu Institute of Computer Applications, Chinese Academy of Sciences; University of Chinese Academy of Sciences"
+  - family-names: Pan
+    given-names: Sicheng
+    affiliation: "Beijing Institute of Technology"
+  - family-names: Sun
+    given-names: Zhuoyu
+    affiliation: "Beijing Institute of Technology"
+  - family-names: Liu
+    given-names: Yifei
+    affiliation: "Beijing Institute of Technology"
+  - family-names: Huang
+    given-names: Baohan
+    affiliation: "Beijing Institute of Technology"
+  - family-names: Cui
+    given-names: Zhe
+    affiliation: "Chengdu Institute of Computer Applications, Chinese Academy of Sciences; University of Chinese Academy of Sciences"
+  - family-names: Zhang
+    given-names: Haibin
+    affiliation: "Yangtze Delta Region Institute of Tsinghua University, Zhejiang; Jiaxing Key Laboratory of Artificial Intelligence and Cyber Resilience"
+  - family-names: Zuo
+    given-names: Cong
+    affiliation: "Beijing Institute of Technology"
+license: MIT
+repository-code: "https://github.com/yuranqiu/CacheXL"
