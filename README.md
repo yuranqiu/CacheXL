@@ -40,7 +40,7 @@ Cross-instance learning is an emerging mechanism for improving LLM reasoning. It
 
 ## Results
 
-CacheXL achieves the highest average accuracy across five LLMs and nine benchmarks, outperforming both ReAct and [Batch of Thought (BoT)](https://arxiv.org/abs/2601.02950) (ACL 2026 Oral):
+CacheXL achieves the highest average accuracy across five LLMs and nine benchmarks, outperforming both ReAct and [Batch of Thought (BoT)](https://arxiv.org/abs/2601.02950):
 
 | Model | ReAct | BoT | CacheXL |
 |-------|-------|-----|---------|
